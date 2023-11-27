@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xray.proxy.shadowsocks;
+package xray.proxy.horizon;
 option csharp_namespace = "Xray.Proxy.Horizon";
 option go_package = "github.com/xtls/xray-core/proxy/horizon";
 option java_package = "com.xray.proxy.horizon";
