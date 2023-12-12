@@ -65,7 +65,7 @@ func (i *Inbound) Network() []net.Network {
 
 func (i *Inbound) Process(ctx context.Context, network net.Network, connection stat.Connection, dispatcher routing.Dispatcher) error {
 	inbound := session.InboundFromContext(ctx)
-	inbound.Name = "shadowsocks-2022"
+	inbound.Name = "horizon"
 	inbound.SetCanSpliceCopy(3)
 
 	var metadata M.Metadata

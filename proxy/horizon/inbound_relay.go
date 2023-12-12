@@ -86,7 +86,7 @@ func (i *RelayInbound) Network() []net.Network {
 
 func (i *RelayInbound) Process(ctx context.Context, network net.Network, connection stat.Connection, dispatcher routing.Dispatcher) error {
 	inbound := session.InboundFromContext(ctx)
-	inbound.Name = "shadowsocks-2022-relay"
+	inbound.Name = "horizon-relay"
 	inbound.SetCanSpliceCopy(3)
 
 	var metadata M.Metadata

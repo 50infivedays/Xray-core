@@ -73,7 +73,7 @@ func (o *Outbound) Process(ctx context.Context, link *transport.Link, dialer int
 	if outbound == nil || !outbound.Target.IsValid() {
 		return newError("target not specified")
 	}
-	outbound.Name = "shadowsocks-2022"
+	outbound.Name = "horizon"
 	destination := outbound.Target
 	network := destination.Network
 
