@@ -52,6 +52,8 @@ func NewClient(ctx context.Context, config *ClientConfig) (*Outbound, error) {
 			return nil, newError("create method").Base(err)
 		}
 		o.method = method
+	} else if config.Method == shadowsocks.MethodNone {
+		o.method = shadowsocks.NewNone()
 	} else {
 		return nil, newError("unknown method ", config.Method)
 	}
