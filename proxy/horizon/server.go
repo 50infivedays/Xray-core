@@ -72,8 +72,10 @@ func (s *Server) Network() []net.Network {
 
 func (s *Server) Process(ctx context.Context, network net.Network, conn stat.Connection, dispatcher routing.Dispatcher) error {
 	inbound := session.InboundFromContext(ctx)
+	if inbound == nil {
+		panic("no inbound metadata")
+	}
 	inbound.Name = "horizon"
-	inbound.SetCanSpliceCopy(3)
 
 	switch network {
 	case net.Network_TCP:
