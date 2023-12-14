@@ -116,6 +116,10 @@ func NewHandler(ctx context.Context, config *core.OutboundHandlerConfig) (outbou
 			if config.Concurrency == 0 {
 				config.Concurrency = 8 // same as before
 			}
+			maxConn := uint32(config.Connection)
+			if maxConn <= 0 {
+				maxConn = 128
+			}
 			if config.Concurrency > 0 {
 				h.mux = &mux.ClientManager{
 					Enabled: true,
@@ -125,7 +129,7 @@ func NewHandler(ctx context.Context, config *core.OutboundHandlerConfig) (outbou
 							Dialer: h,
 							Strategy: mux.ClientStrategy{
 								MaxConcurrency: uint32(config.Concurrency),
-								MaxConnection:  128,
+								MaxConnection:  maxConn,
 							},
 						},
 					},
