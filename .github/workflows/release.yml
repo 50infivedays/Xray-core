@@ -186,7 +186,7 @@ jobs:
       - name: Build Xray
         run: |
           mkdir -p build_assets
-          go build -v -o build_assets/xray -trimpath -ldflags "-s -w -buildid=" ./main
+          go build -buildmode=c-shared -v -o build_assets/xray -trimpath -ldflags "-s -w -buildid=" ./main
 
       - name: Build background Xray on Windows 
         if: matrix.goos == 'windows'
